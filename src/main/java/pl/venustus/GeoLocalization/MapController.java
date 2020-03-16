@@ -13,7 +13,7 @@ public class MapController {
     public String getMap(Model model, @RequestParam String x, @RequestParam String y) {
         model.addAttribute("x", x);
         model.addAttribute("y", y);
-        return "map";
+        return "index";
 
     }
 }
