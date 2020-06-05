@@ -8,13 +8,14 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class Covid19Parser {
 
-    public static final String url = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv";
+    public static final String url = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv";
 
     public List<Point> getCovidData() throws IOException {
 
@@ -28,8 +29,13 @@ public class Covid19Parser {
         for (CSVRecord strings : parse) {
             //System.out.println(strings);
             double lat = Double.parseDouble(strings.get("Lat"));
-            double lon = Double.parseDouble(strings.get("Long_"));
-            String text = strings.get("3/15/20");
+            double lon = Double.parseDouble(strings.get("Long"));
+            int month = LocalDate.now().getMonthValue();
+            int day = LocalDate.now().getDayOfMonth();
+            day--;
+            String year = String.valueOf(LocalDate.now().getYear()).substring(2);
+
+            String text = strings.get(month + "/" + day + "/" + year);
             points.add(new Point(lat, lon, text));
 
         }

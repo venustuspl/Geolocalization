@@ -15,14 +15,14 @@
 </head>
 <body>
 
+<center>
+    <h3 align="center-">Coronavirus Map</h3>
 
-<h3 align="center-">Coronavirus Map</h3>
-
-<br>
+    <br>
 
 
-<div id="mapid" style="width: 800px; height: 600px;"></div>
-<script th:inline="javascript">
+    <div id="mapid" style="width: 800px; height: 600px;"></div>
+    <script th:inline="javascript">
 
     var x = "[[${x}]]";
     var y = "[[${y}]]";
@@ -59,7 +59,8 @@
 	mymap.on('click', onMapClick);
 
 
-</script>
 
+    </script>
+</center>
 </body>
 </html>

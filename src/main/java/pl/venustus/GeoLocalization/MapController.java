@@ -3,6 +3,9 @@ package pl.venustus.GeoLocalization;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.IOException;
 
@@ -16,6 +19,11 @@ public class MapController {
     }
 
     @GetMapping
+    public String getHome(){
+        return "home";
+    }
+
+    @RequestMapping(value = "/mapload", method = RequestMethod.GET)
     public String getMap(Model model//, @RequestParam String x, @RequestParam String y
     ) throws IOException {
         // model.addAttribute("x", x);
