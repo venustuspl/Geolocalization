@@ -18,21 +18,16 @@ public class MapController {
     }
 
     @GetMapping
-<<<<<<<HEAD
-
     public String getHome() {
-=======
-        public String getHome () {
->>>>>>>95 b9495d1c35e055c83e92b17a785a3c57e0eb96
-            return "home";
-        }
+        return "home";
+    }
 
-        @RequestMapping(value = "/mapload", method = RequestMethod.GET)
-        public String getMap (Model model//, @RequestParam String x, @RequestParam String y
-    ) throws IOException {
-            // model.addAttribute("x", x);
-            // model.addAttribute("y", y);
-            model.addAttribute("points", covid19Parser.getCovidData());
+    @RequestMapping(value = "/mapload", method = RequestMethod.GET)
+    public String getMap(Model model)//, @RequestParam String x, @RequestParam String y
+            throws IOException {
+        // model.addAttribute("x", x);
+        // model.addAttribute("y", y);
+        model.addAttribute("points", covid19Parser.getCovidData());
 
         return "index";
 
