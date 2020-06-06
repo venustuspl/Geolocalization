@@ -19,7 +19,7 @@ public class MapController {
     }
 
     @GetMapping
-    public String getHome(){
+    public String getHome() {
         return "home";
     }
 
